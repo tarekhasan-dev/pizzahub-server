@@ -1,4 +1,8 @@
+import dns from "node:dns";
 import { MongoClient } from "mongodb";
+
+// ISP এর DNS এ SRV lookup ব্যর্থ হলে (querySrv ECONNREFUSED) এটা কাজ করে
+dns.setServers(["8.8.8.8", "1.1.1.1"]);
 
 let client;
 let db;
